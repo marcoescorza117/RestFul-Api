@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ namespace SocialMedia.Api.Controllers
         [HttpGet]
         public IActionResult GetPost() {
 
-            return Ok(null);
+            var post = new PostRepository().GetPost();
+            return Ok(post);
         
         }
     }
