@@ -1,5 +1,7 @@
 ﻿using System;
 
+
+//Entidad para manejo de Post 
 namespace SocialMedia.Core.Entities
 {
     public class Post
