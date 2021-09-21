@@ -13,3 +13,6 @@ C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\De
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\net5.0\SocialMedia.Infrastructure.dll
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\net5.0\ref\SocialMedia.Infrastructure.dll
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\net5.0\SocialMedia.Infrastructure.pdb
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\net5.0\SocialMedia.Infrastructure.runtimeconfig.json
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\bin\Debug\net5.0\SocialMedia.Infrastructure.runtimeconfig.dev.json
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Infrastructure\obj\Debug\net5.0\SocialMedia.Infrastructure.genruntimeconfig.cache

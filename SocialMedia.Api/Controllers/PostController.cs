@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Repositories;
+using System.Threading.Tasks;
 
 namespace SocialMedia.Api.Controllers
 {
@@ -20,7 +21,7 @@ namespace SocialMedia.Api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetPost() {
+        public async Task<IActionResult> GetPost() {
             //NO ACOPLAR A CONTROLADOR NUESTRO REPOSITORIO
             //SE INCLUMPLE INYECCION DE DEPENDENCIAS
 
@@ -30,7 +31,9 @@ namespace SocialMedia.Api.Controllers
             //
 
             //Manera correcta de implementacion :) 
-            var post = _postRepository.GetPosts();
+            //Lo siguiente sirve para el scaffolding
+            //Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=SocialMedia;Integrated Security = true" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data
+            var post = await _postRepository.GetPosts();
             return Ok(post);
         
         }

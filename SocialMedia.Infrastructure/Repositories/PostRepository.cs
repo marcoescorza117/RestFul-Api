@@ -13,7 +13,8 @@ namespace SocialMedia.Infrastructure.Repositories
     {
 
         //retorna el listado de post
-        public async Task<IEnumerable<Post>> GetPost()
+        
+        public async Task<IEnumerable<Post>> GetPosts()
         {
             var post = Enumerable.Range(1, 588).Select(x => new Post
             {
@@ -27,12 +28,6 @@ namespace SocialMedia.Infrastructure.Repositories
 
             await Task.Delay(10);
             return post;
-
-        }
-
-        public Task<IEnumerable<Post>> GetPosts()
-        {
-            throw new NotImplementedException();
         }
     }
 }
