@@ -25,9 +25,13 @@ namespace SocialMedia.Api.Controllers
             //SE INCLUMPLE INYECCION DE DEPENDENCIAS
 
             //Incorrecto, tiene que hacerse con inyeccion de dependencias
-            var post = new PostRepository().GetPost();
-            return Ok(post);
+            //var post = new PostRepository().GetPost();
+            //return Ok(post);
             //
+
+            //Manera correcta de implementacion :) 
+            var post = _postRepository.GetPosts();
+            return Ok(post);
         
         }
     }
