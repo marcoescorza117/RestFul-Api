@@ -12,7 +12,7 @@ namespace SocialMedia.Infrastructure.Repositories
         //retorna el listado de post
         public IEnumerable<Post> GetPost()
         {
-            var post = Enumerable.Range(1, 58).Select(x => new Post { 
+            var post = Enumerable.Range(1, 588).Select(x => new Post { 
                 
                 PostId = x,
                 Description = $"Description{x}",
