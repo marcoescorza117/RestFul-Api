@@ -7,7 +7,7 @@ namespace SocialMedia.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PostController : Controller
+    public class PostController : ControllerBase
     {
 
         //tiene que generarse inyeccuion de dependencias
@@ -37,5 +37,18 @@ namespace SocialMedia.Api.Controllers
             return Ok(post);
         
         }
+
+        //Obteneindoi un post
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetPost(int id)
+        {
+
+            var post = await _postRepository.GetPost(id);
+            return Ok(post);
+
+        }
+
+
+
     }
 }
