@@ -11,6 +11,6 @@ namespace SocialMedia.Core.Interfaces
     {
         //Se definen los metodos que se deben de implemenbtar en las clases
 
-        Task<IEnumerable<Publicacion>> GetPosts();
+        Task<IEnumerable<Post>> GetPosts();
     }
 }

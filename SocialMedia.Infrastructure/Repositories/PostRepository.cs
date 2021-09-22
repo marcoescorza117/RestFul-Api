@@ -21,9 +21,9 @@ namespace SocialMedia.Infrastructure.Repositories
         }
 
         //esto apunta hacia la base de datos
-        public async Task<IEnumerable<Publicacion>> GetPosts()
+        public async Task<IEnumerable<Post>> GetPosts()
         {
-            var post = await _context.Publicacions.ToListAsync();
+            var post = await _context.Posts.ToListAsync();
             return post;
 
         }
