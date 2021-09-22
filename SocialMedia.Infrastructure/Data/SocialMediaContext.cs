@@ -39,13 +39,17 @@ namespace SocialMedia.Infrastructure.Data
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
 
             //Hace referencia a la configuracion de Comment
-            modelBuilder.ApplyConfiguration(new CommentConfiguration());
+            //modelBuilder.ApplyConfiguration(new CommentConfiguration());
 
             //Hace referencia a la configuracion de Post
-            modelBuilder.ApplyConfiguration(new PostConfiguration());
+            //modelBuilder.ApplyConfiguration(new PostConfiguration());
 
             //Hace referencia a la configuracion de User
-            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            //modelBuilder.ApplyConfiguration(new UserConfiguration());
+
+
+            //esta podria ser otra manera
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SocialMediaContext).Assembly);
 
             
 
