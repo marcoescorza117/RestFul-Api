@@ -36,6 +36,14 @@ namespace SocialMedia.Infrastructure.Repositories
         }
 
 
+        //metodo de guardar
+        public async Task InsertPost(Post post)
+        {
+            _context.Posts.Add(post);
+            await _context.SaveChangesAsync();
+        }
+
+
         //retorna el listado de post
         /*public async Task<IEnumerable<Post>> GetPosts()
         {
