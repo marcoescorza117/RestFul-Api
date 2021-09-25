@@ -30,7 +30,11 @@ namespace SocialMedia.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            //Obtener compilados de proyecto y con eso detecta los mapeos registrados
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+
+
             //isntalar el paquete desde nuget
             //Necasrio para evitar la referenceloopHandling ignorar error y mostrar el nodo siguiemte pero vacio
             services.AddControllers().AddNewtonsoftJson(options =>

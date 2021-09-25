@@ -1,8 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Repositories;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -16,10 +19,14 @@ namespace SocialMedia.Api.Controllers
         //tiene que generarse inyeccuion de dependencias
 
         private readonly IPostRepository _postRepository;
+        private readonly IMapper _mapper;
 
-        public PostController(IPostRepository postRepository)
+        public PostController(IPostRepository postRepository, IMapper mapper)
         {
             _postRepository = postRepository;
+
+            //Inyeccion de dependenbcias de automapper
+            _mapper = mapper;
 
         }
 
@@ -43,15 +50,17 @@ namespace SocialMedia.Api.Controllers
 
             //Conviertiendo enumerable de entidad de dominio a entidad Dto
             //Lambda expression
-            var postDTOs = post.Select(x => new PostDto
-            {
-                PostId = x.PostId,
-                Date = x.Date,
-                Description = x.Description,
-                Image = x.Image,
-                UserId = x.UserId
+            /* var postDTOs = post.Select(x => new PostDto
+             {
+                 PostId = x.PostId,
+                 Date = x.Date,
+                 Description = x.Description,
+                 Image = x.Image,
+                 UserId = x.UserId
 
-            });
+             });*/
+
+            var postDTOs = _mapper.Map<IEnumerable<PostDto>>(post);
             return Ok(postDTOs);
         
         }
@@ -63,7 +72,7 @@ namespace SocialMedia.Api.Controllers
 
             var post = await _postRepository.GetPost(id);
 
-            var postDto = new PostDto
+            /*var postDto = new PostDto
             {
                 PostId = post.PostId,
                 Date = post.Date,
@@ -71,9 +80,11 @@ namespace SocialMedia.Api.Controllers
                 Image = post.Image,
                 UserId = post.UserId
                 
-            };
+            };*/
 
-            return Ok(postDto);
+            var postDTOs = _mapper.Map<IEnumerable<PostDto>>(post);
+
+            return Ok(postDTOs);
 
         }
         
@@ -94,7 +105,11 @@ namespace SocialMedia.Api.Controllers
 
             };
 
-            await _postRepository.InsertPost(post);
+
+           // var posts = _mapper.Map<IEnumerable<Post>>(postDto); resolver este error
+
+
+            await _postRepository.InsertPost(post);//?
             return Ok(post);
 
         }
