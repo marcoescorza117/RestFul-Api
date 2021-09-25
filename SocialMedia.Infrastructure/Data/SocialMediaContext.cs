@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using SocialMedia.Core.Entities;
@@ -35,8 +36,10 @@ namespace SocialMedia.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
-            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            //modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+            //Hace referencia a la configuracion de User
+            //modelBuilder.ApplyConfiguration(new UserConfiguration());
 
             //Hace referencia a la configuracion de Comment
             //modelBuilder.ApplyConfiguration(new CommentConfiguration());
@@ -44,16 +47,16 @@ namespace SocialMedia.Infrastructure.Data
             //Hace referencia a la configuracion de Post
             //modelBuilder.ApplyConfiguration(new PostConfiguration());
 
-            //Hace referencia a la configuracion de User
-            //modelBuilder.ApplyConfiguration(new UserConfiguration());
+
 
 
             //esta podria ser otra manera
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(SocialMediaContext).Assembly);
+            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(SocialMediaContext).Assembly);
 
-            
+
 
             //OnModelCreatingPartial(modelBuilder);
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
         }
 
         //partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
