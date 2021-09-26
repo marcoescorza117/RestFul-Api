@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Data;
+using SocialMedia.Infrastructure.Filters;
 using SocialMedia.Infrastructure.Repositories;
 using System;
 using System.Collections.Generic;
@@ -40,7 +41,14 @@ namespace SocialMedia.Api
             services.AddControllers().AddNewtonsoftJson(options =>
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+            }).ConfigureApiBehaviorOptions(options => {
+
+                options.SuppressModelStateInvalidFilter = true; //validando modelo de forma manual
+
+
             });
+
+
 
 
             services.AddControllers();
@@ -58,6 +66,14 @@ namespace SocialMedia.Api
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SocialMedia.Api", Version = "v1" });
+            });
+
+
+            //Agregando filter a nivel global con compartibilidad a mvc
+
+            services.AddMvc(options =>
+            {
+                options.Filters.Add<ValidationFilter>();
             });
         }
 

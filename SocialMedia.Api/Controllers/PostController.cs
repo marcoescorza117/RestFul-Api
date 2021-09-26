@@ -93,6 +93,15 @@ namespace SocialMedia.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post(PostDto postDto)
         {
+
+            /*
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+
+            }*/
+
+
             //Mapeando entidad
             var post = new Post
             {
