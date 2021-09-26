@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "36W02nc7aPDgxtLaIieJ7UjcsHbyCZ5nEFAGio0AxktuvggJK0DEHvMfNGeY1fHj17oXDKl+M3fgEn7W4fvFnA==",
+  "dgSpecHash": "SBiJYVHiEKBm5Gaf8J0NB3eQnv29Cp0IjN51YnvyAfxGfSlGcDvDJG+D2RGB6jgUl4NENjNgy3oeoviauirCwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\marcoescorza\\source\\repos\\SocialMedia\\SocialMedia.Api\\SocialMedia.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\marcoescorza\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\marcoescorza\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\marcoescorza\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",
+    "C:\\Users\\marcoescorza\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.3\\fluentvalidation.aspnetcore.10.3.3.nupkg.sha512",
+    "C:\\Users\\marcoescorza\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.3\\fluentvalidation.dependencyinjectionextensions.10.3.3.nupkg.sha512",
     "C:\\Users\\marcoescorza\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\marcoescorza\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\marcoescorza\\.nuget\\packages\\microsoft.aspnetcore.authentication.core\\2.2.0\\microsoft.aspnetcore.authentication.core.2.2.0.nupkg.sha512",

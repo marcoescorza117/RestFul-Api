@@ -66,3 +66,10 @@ C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\marcoescorza\source\repos\SocialMedia\SocialMedia.Api\bin\Debug\net5.0\Microsoft.Extensions.DependencyModel.dll

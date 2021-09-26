@@ -1,21 +1,17 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using SocialMedia.Core.Interfaces;
 using SocialMedia.Infrastructure.Data;
 using SocialMedia.Infrastructure.Filters;
 using SocialMedia.Infrastructure.Repositories;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace SocialMedia.Api
 {
@@ -43,7 +39,9 @@ namespace SocialMedia.Api
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             }).ConfigureApiBehaviorOptions(options => {
 
-                options.SuppressModelStateInvalidFilter = true; //validando modelo de forma manual
+
+                //options.SuppressModelStateInvalidFilter = true; //validando modelo de forma manual
+                //Comentandolo--- la validacion se trabajaria desde ApiController
 
 
             });
@@ -69,11 +67,18 @@ namespace SocialMedia.Api
             });
 
 
-            //Agregando filter a nivel global con compartibilidad a mvc
+            //Agregando filter a nivel global con compartibilidad a mvc -- agregando validators
 
             services.AddMvc(options =>
             {
                 options.Filters.Add<ValidationFilter>();
+
+
+            }).AddFluentValidation(options =>
+            {
+
+                options.RegisterValidatorsFromAssemblies(AppDomain.CurrentDomain.GetAssemblies());
+            
             });
         }
 
