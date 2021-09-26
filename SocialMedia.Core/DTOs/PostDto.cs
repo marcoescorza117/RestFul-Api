@@ -9,13 +9,14 @@ namespace SocialMedia.Core.DTOs
 {
     //misma estructura de nuestra entidad de negocio que queremos emular
     //los Dtos NO DEBEN DE TENER LOGICA EN ELLOS... SOLO SIRVEN PARA TRASMIUTIR INFORMACION
+    //TAMPOCO DEBEN DE incluir DataAnnotations
     public class PostDto
     {
         public int PostId { get; set; }
         public int UserId { get; set; }
         public DateTime Date { get; set; }
 
-        [Required]
+        //[Required]
         public string Description { get; set; }
         public string Image { get; set; }
 
