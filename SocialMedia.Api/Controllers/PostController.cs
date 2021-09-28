@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using SocialMedia.Api.Responses;
 using SocialMedia.Core.DTOs;
 using SocialMedia.Core.Entities;
 using SocialMedia.Core.Interfaces;
@@ -61,7 +62,8 @@ namespace SocialMedia.Api.Controllers
              });*/
 
             var postDTOs = _mapper.Map<IEnumerable<PostDto>>(post);
-            return Ok(postDTOs);
+            var response = new ApiResponses<IEnumerable<PostDto>>(postDTOs);
+            return Ok(response);
         
         }
 
@@ -82,9 +84,10 @@ namespace SocialMedia.Api.Controllers
                 
             };*/
 
-            var postDTOs = _mapper.Map<IEnumerable<PostDto>>(post);
+            var postDTOs = _mapper.Map<PostDto>(post);
+            var response = new ApiResponses<PostDto>(postDTOs);
 
-            return Ok(postDTOs);
+            return Ok(response);
 
         }
         
@@ -103,23 +106,34 @@ namespace SocialMedia.Api.Controllers
 
 
             //Mapeando entidad
-            var post = new Post
-            {
-
-                
-                Date = postDto.Date,
-                Description = postDto.Description,
-                Image = postDto.Image,
-                UserId = postDto.UserId
-
-            };
+            /* var post = new Post
+             {
 
 
-           // var posts = _mapper.Map<IEnumerable<Post>>(postDto); resolver este error
+                 Date = postDto.Date,
+                 Description = postDto.Description,
+                 Image = postDto.Image,
+                 UserId = postDto.UserId
+
+             };*/
 
 
-            await _postRepository.InsertPost(post);//?
-            return Ok(post);
+            // var posts = _mapper.Map<IEnumerable<Post>>(postDto); resolver este error
+
+
+            //await _postRepository.InsertPost(post);//?
+            //return Ok(post);
+
+
+            var post = _mapper.Map<Post>(postDto);
+
+            await _postRepository.InsertPost(post);
+
+            postDto = _mapper.Map<PostDto>(post);
+            var response = new ApiResponses<PostDto>(postDto);
+
+            return Ok(response);
+
 
         }
 
@@ -130,20 +144,21 @@ namespace SocialMedia.Api.Controllers
         public async Task<IActionResult> Put(int id, PostDto postDto)
         {
             var post = _mapper.Map<Post>(postDto);
-
-            await _postRepository.InsertPost(post);
-            return Ok(post);
+            post.PostId = id; // Mapeado a nivel de controlador
+            
+            var result = await _postRepository.UpdatePost(post);
+            var response = new ApiResponses<bool>(result);
+            return Ok(response);
         }
-        
-        
+
+
         //Borrar un post
-        [HttpDelete]
+        [HttpDelete("{id}")]
 
         public async Task<IActionResult> Delete(int id)
         {
-            
-
             var result = await _postRepository.DeletePost(id);
+            var response = new ApiResponses<bool>(result);
             return Ok(result);
         }
 

@@ -70,6 +70,8 @@ namespace SocialMedia.Infrastructure.Repositories
         public async Task<bool> UpdatePost(Post post)
         {
             var currentPost = await GetPost(post.PostId);
+            
+            
             currentPost.Date = post.Date;
             currentPost.Description = post.Description;
             currentPost.Image = post.Image;
