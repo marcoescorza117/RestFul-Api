@@ -18,5 +18,12 @@ namespace SocialMedia.Core.Interfaces
 
         Task InsertPost(Post post);
         //Task InsertPost(IEnumerable<Post> posts);
+
+
+        //operaciones CRUD
+
+        Task<bool> UpdatePost(Post post);
+
+        Task<bool> DeletePost(int id);
     }
 }

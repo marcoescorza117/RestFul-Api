@@ -65,6 +65,36 @@ namespace SocialMedia.Infrastructure.Repositories
         }*/
 
 
+        //1ra forma de actualizar...
+        //Contexto enlazado o no.....usando el trascking que usa el framework
+        public async Task<bool> UpdatePost(Post post)
+        {
+            var currentPost = await GetPost(post.PostId);
+            currentPost.Date = post.Date;
+            currentPost.Description = post.Description;
+            currentPost.Image = post.Image;
+
+            int rowsAffected = await _context.SaveChangesAsync();
+            return rowsAffected > 0;
+
+        }
+
+
+        //Metodo para eliminar
+        public async Task<bool> DeletePost(int id)
+        {
+            var currentPost = await GetPost(id);
+            _context.Posts.Remove(currentPost);
+
+            int rowsAffected = await _context.SaveChangesAsync();
+            return rowsAffected > 0;
+
+        }
+
+
+
+
+
 
     }
 }

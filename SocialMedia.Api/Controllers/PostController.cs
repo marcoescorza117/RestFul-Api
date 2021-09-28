@@ -124,6 +124,30 @@ namespace SocialMedia.Api.Controllers
         }
 
 
+        //Actualizar un post
+        [HttpPut]
+
+        public async Task<IActionResult> Put(int id, PostDto postDto)
+        {
+            var post = _mapper.Map<Post>(postDto);
+
+            await _postRepository.InsertPost(post);
+            return Ok(post);
+        }
+        
+        
+        //Borrar un post
+        [HttpDelete]
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            
+
+            var result = await _postRepository.DeletePost(id);
+            return Ok(result);
+        }
+
+
 
     }
 }
